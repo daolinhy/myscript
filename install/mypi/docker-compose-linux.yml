@@ -1,0 +1,58 @@
+services:
+  pijs2-pro:
+    image: daolin/pijs2:v1
+    container_name: pijs2-pro
+    ports:
+      - 51080:51080
+    volumes:
+      - /download/gitspace/pijs2/nginx-default.conf:/etc/nginx/conf.d/default.conf
+      - /download/gitspace/pijs2/nginx.conf:/etc/nginx/nginx.conf
+      - /download/gitspace/pijs2/dist:/etc/nginx/web
+    environment: 
+      - TZ=Asia/Shanghai
+    restart: always
+  hynode-server-pro:
+    image: daolin/hynode-server:v1
+    container_name: hynode-server-pro
+    ports:
+      - 51000:51000
+    volumes: 
+      - /download/gitspace/hynode-server/src:/app/src
+      - /download/gitspace/hynode-server/logs:/app/logs
+      - /download/gitspace/hynode-server/.ddns.json:/app/.ddns.json
+      - /download/gitspace/hynode-server/.env:/app/.env
+      - /download/gitspace/hynode-server/package.json:/app/package.json
+    environment: 
+      - TZ=Asia/Shanghai
+    restart: always
+    command: [ "npm","start"]
+  mysql5.7:
+    image: swaycn/mysql:5.7.44
+    container_name: mysql5.7
+    ports:
+      - "33062:3306"
+    volumes:
+      - /download/dapp/mysql5.7/mysql:/etc/mysql
+      - /download/dapp/mysql5.7/db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=123
+    restart: always
+  phpmyadmin:
+    restart: always
+    image: swaycn/phpmyadmin:latest
+    ports:
+      - 7000:80
+    environment:
+      - PMA_HOSTS=mysql5.7
+  redis8:
+    image: swaycn/redis:8.2.1-alpine3.22
+    container_name: redis8
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - "6379:6379"
+    restart: always
+networks:
+  default:
+    external: true
+    name: web
