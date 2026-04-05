@@ -5,8 +5,8 @@ services:
     ports:
       - 51080:51080
     volumes:
-      - /download/gitspace/pijs2/nginx-default.conf:/etc/nginx/conf.d/default.conf
-      - /download/gitspace/pijs2/nginx.conf:/etc/nginx/nginx.conf
+      - /download/gitspace/pijs2/docker/nginx-default.conf:/etc/nginx/conf.d/default.conf
+      - /download/gitspace/pijs2/docker/nginx.conf:/etc/nginx/nginx.conf
       - /download/gitspace/pijs2/dist:/etc/nginx/web
     environment: 
       - TZ=Asia/Shanghai
