@@ -22,6 +22,8 @@ docker build -t ${image}:${ver} .
 
 echo 'start build hynode-server'
 cd /download/gitspace/hynode-server
+cp .env-sample .env
+cp .ddns-sample.json .ddns.json
 name=hynode-server-pro
 image=daolin/hynode-server
 ver=v1
