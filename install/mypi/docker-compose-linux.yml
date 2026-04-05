@@ -39,7 +39,7 @@ services:
     restart: always
   phpmyadmin:
     restart: always
-    image: swaycn/phpmyadmin:latest
+    image: swaycn/phpmyadmin:5.2.3-fpm-alpine
     ports:
       - 7000:80
     environment:

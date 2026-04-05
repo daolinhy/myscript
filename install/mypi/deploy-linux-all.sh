@@ -42,7 +42,7 @@ if [ ! -e "/download/dapp/mysql5.7" ]; then
 fi
 # 启动
 echo 'start docker'
-wget https://gitee.com/daolin_hy/docker/raw/master/install/mypi/docker-compose-linux.yml
+wget https://gitee.com/daolin_hy/myscript/raw/master/install/mypi/docker-compose-linux.yml
 docker network create web
 docker compose -f docker-compose-linux.yml up 
 
