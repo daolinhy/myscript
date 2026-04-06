@@ -4,10 +4,10 @@ echo 'start download code'
 mkdir -p /download/gitspace
 cd /download/gitspace
 if [ ! -e "/download/gitspace/pijs2" ]; then
-    git clone git@gitee.com:daolin_hy/pijs2.git
+    git clone git@gitee.com:daolin_hy/pijs2.git -o StrictHostKeyChecking=no
 fi
 if [ ! -e "/download/gitspace/hynode-server" ]; then
-    git clone git@gitee.com:daolin_hy/hynode-server.git
+    git clone git@gitee.com:daolin_hy/hynode-server.git -o StrictHostKeyChecking=no
 fi
 cd pijs2/docker
 
