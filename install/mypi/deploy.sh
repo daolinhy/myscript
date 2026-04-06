@@ -10,9 +10,11 @@ cd /download/gitspace
 ssh-keygen -R $gitAddr
 ssh-keyscan $gitAddr >> ~/.ssh/known_hosts 
 if [ ! -e "/download/gitspace/pijs2" ]; then
+    echo git@${gitClone}/pijs2.git
     git clone git@${gitClone}/pijs2.git
 fi
 if [ ! -e "/download/gitspace/hynode-server" ]; then
+    echo git@${gitClone}/hynode-server.git
     git clone git@${gitClone}/hynode-server.git
 fi
 cd pijs2/docker
