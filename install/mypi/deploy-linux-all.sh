@@ -3,6 +3,8 @@
 echo 'start download code'
 mkdir -p /download/gitspace
 cd /download/gitspace
+ssh-keygen -R gitee.com
+ssh-keyscan gitee.com >> ~/.ssh/known_hosts 
 if [ ! -e "/download/gitspace/pijs2" ]; then
     git clone git@gitee.com:daolin_hy/pijs2.git -o StrictHostKeyChecking=no
 fi
