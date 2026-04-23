@@ -25,11 +25,11 @@ image=swaycn/pijs2
 ver=v1
 docker stop $name
 docker rm $name
-docker rmi ${image}:${v1}
+docker rmi ${image}:${ver}
 docker build \
 --build-arg BASE_WARE=  \
 --build-arg NPM_MIRROR=  \
--t ${image}:${v1} .
+-t ${image}:${ver} -f Dockerfile ../
 
 echo 'start build hynode-server'
 cd /download/gitspace/hynode-server
@@ -39,11 +39,11 @@ ver=v1
 mkdir logs
 docker stop $name
 docker rm $name
-docker rmi ${image}:${v1}
+docker rmi ${image}:${ver}
 docker build \
 --build-arg BASE_WARE=  \
 --build-arg NPM_MIRROR=  \
--t ${image}:${v1} .
+-t ${image}:${ver} -f Dockerfile ../
 
 mkdir /download/dapp
 cd /download/dapp
