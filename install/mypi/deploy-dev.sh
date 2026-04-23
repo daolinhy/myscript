@@ -3,7 +3,6 @@
 echo 'start download code'
 gitAddr=github.com
 gitClone=${gitAddr}:daolinhy
-myscript=https://raw.githubusercontent.com/daolinhy/myscript/refs/heads/master/
 
 mkdir -p /download/gitspace
 cd /download/gitspace
@@ -19,12 +18,12 @@ if [ ! -e "/download/gitspace/hynode-server" ]; then
 fi
 cd pijs2/docker
 
-echo 'start build pijs2'
-bash ./deploy-dev.sh
+# echo 'start build pijs2'
+# bash ./deploy-dev.sh
 
-echo 'start build hynode-server'
-cd /download/gitspace/hynode-server/docker
-bash ./deploy-dev.sh
+# echo 'start build hynode-server'
+# cd /download/gitspace/hynode-server/docker
+# bash ./deploy-dev.sh
 
 mkdir /download/dapp
 cd /download/dapp

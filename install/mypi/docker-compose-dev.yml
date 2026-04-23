@@ -1,27 +1,4 @@
 services:
-  pijs2-dev:
-    image: swaycn/devnode:22-alpine
-    container_name: pijs2-dev
-    ports:
-      - 7000:7000
-    volumes:
-      - /download/gitspace/pijs2:/app
-    environment: 
-      - TZ=Asia/Shanghai
-    # command: [ "tail","-f","/dev/null" ]
-    command: [ "npm", "run", "dev" ]
-  hynode-server-dev:
-    image: swaycn/devnode:22-alpine
-    container_name: hynode-server-dev
-    ports:
-      - 3229:3229
-    volumes: 
-      - /download/gitspace/hynode-server:/app
-      - /download/gitspace/image_baidu:/backupDir/comic
-    environment: 
-      - TZ=Asia/Shanghai
-    # command: [ "tail","-f","/dev/null" ]
-    command: [ "npm", "run", "dev" ]
   mysql5.7:
     image: swaycn/mysql:5.7.44
     container_name: mysql5.7
