@@ -1,6 +1,6 @@
 services:
   pijs2-pro:
-    image: daolin/pijs2:v1
+    image: swaycn/pijs2:v1
     container_name: pijs2-pro
     ports:
       - 51080:51080
@@ -12,7 +12,7 @@ services:
       - TZ=Asia/Shanghai
     restart: always
   hynode-server-pro:
-    image: daolin/hynode-server:v1
+    image: swaycn/hynode-server:v1
     container_name: hynode-server-pro
     ports:
       - 51000:51000

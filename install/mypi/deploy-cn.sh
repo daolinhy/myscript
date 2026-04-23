@@ -15,25 +15,23 @@ cd pijs2/docker
 
 echo 'start build pijs2'
 name=pijs2-pro
-image=daolin/pijs2
+image=swaycn/pijs2
 ver=v1
 docker stop $name
 docker rm $name
-docker rmi ${image}:${ver}
-docker build -t ${image}:${ver} .
+docker rmi ${image}:${v1}
+docker build -t ${image}:${v1} .
 
 echo 'start build hynode-server'
-cd /download/gitspace/hynode-server
-cp .env-sample .env
-cp .ddns-sample.json .ddns.json
+cd /download/gitspace/hynode-server/docker
 name=hynode-server-pro
-image=daolin/hynode-server
+image=swaycn/hynode-server
 ver=v1
 mkdir logs
 docker stop $name
 docker rm $name
-docker rmi ${image}:${ver}
-docker build -t ${image}:${ver} .
+docker rmi ${image}:${v1}
+docker build -t ${image}:${v1} .
 
 mkdir /download/dapp
 cd /download/dapp
