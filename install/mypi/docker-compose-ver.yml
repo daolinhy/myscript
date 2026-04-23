@@ -1,21 +1,19 @@
 services:
-  pijs2-pro:
+  pijs2-test:
     image: swaycn/pijs2:v1
-    container_name: pijs2-pro
+    container_name: pijs2-test
     ports:
-      - 51080:51080
+      - 51081:51080
     volumes:
-      - /download/gitspace/pijs2/docker/nginx-default.conf:/etc/nginx/conf.d/default.conf
-      - /download/gitspace/pijs2/docker/nginx.conf:/etc/nginx/nginx.conf
-      - /download/gitspace/pijs2/dist:/etc/nginx/web
+      - /download/gitspace/pijs2/log:/var/log/nginx
     environment: 
       - TZ=Asia/Shanghai
     restart: always
-  hynode-server-pro:
+  hynode-server-test:
     image: swaycn/hynode-server:v1
-    container_name: hynode-server-pro
+    container_name: hynode-server-test
     ports:
-      - 51000:51000
+      - 51001:51000
     volumes: 
       - /download/gitspace/hynode-server/src:/app/src
       - /download/gitspace/hynode-server/logs:/app/logs

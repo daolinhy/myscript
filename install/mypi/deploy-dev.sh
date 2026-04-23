@@ -20,30 +20,11 @@ fi
 cd pijs2/docker
 
 echo 'start build pijs2'
-name=pijs2-test
-image=swaycn/pijs2
-ver=v1
-docker stop $name
-docker rm $name
-docker rmi ${image}:${ver}
-docker build \
---build-arg BASE_WARE=  \
---build-arg NPM_MIRROR=  \
--t ${image}:${ver} -f Dockerfile ../
+bash ./deploy-dev.sh
 
 echo 'start build hynode-server'
-cd /download/gitspace/hynode-server
-name=hynode-server-test
-image=swaycn/hynode-server
-ver=v1
-mkdir logs
-docker stop $name
-docker rm $name
-docker rmi ${image}:${ver}
-docker build \
---build-arg BASE_WARE=  \
---build-arg NPM_MIRROR=  \
--t ${image}:${ver} -f Dockerfile ../
+cd /download/gitspace/hynode-server/docker
+bash ./deploy-dev.sh
 
 mkdir /download/dapp
 cd /download/dapp
@@ -51,14 +32,14 @@ cd /download/dapp
 # 处理mysql redis
 echo 'start download database'
 if [ ! -e "/download/dapp/mysql5.7" ]; then
-    wget ${myscript}install/mypi/app.tar.gz
+    wget https://gitee.com/daolin_hy/docker/raw/master/install/mypi/app.tar.gz
     tar zxf app.tar.gz
 fi
 # 启动
 echo 'start docker'
-rm docker-compose-ver.yml
-wget ${myscript}install/mypi/docker-compose-ver.yml
+rm docker-compose-dev.yml
+wget https://gitee.com/daolin_hy/myscript/raw/master/install/mypi/docker-compose-dev.yml
 docker network create web
-docker compose -f docker-compose-ver.yml up -d
+docker compose -f docker-compose-dev.yml up -d
 
 

@@ -14,7 +14,7 @@ fi
 cd pijs2/docker
 
 echo 'start build pijs2'
-name=pijs2-pro
+name=pijs2-test
 image=swaycn/pijs2
 ver=v1
 docker stop $name
@@ -24,7 +24,7 @@ docker build -t ${image}:${ver} -f Dockerfile ../
 
 echo 'start build hynode-server'
 cd /download/gitspace/hynode-server/docker
-name=hynode-server-pro
+name=hynode-server-test
 image=swaycn/hynode-server
 ver=v1
 mkdir logs
@@ -44,9 +44,9 @@ if [ ! -e "/download/dapp/mysql5.7" ]; then
 fi
 # 启动
 echo 'start docker'
-rm docker-compose-linux.yml
-wget https://gitee.com/daolin_hy/myscript/raw/master/install/mypi/docker-compose-linux.yml
+rm docker-compose-ver.yml
+wget https://gitee.com/daolin_hy/myscript/raw/master/install/mypi/docker-compose-ver.yml
 docker network create web
-docker compose -f docker-compose-linux.yml up -d
+docker compose -f docker-compose-ver.yml up -d
 
 
