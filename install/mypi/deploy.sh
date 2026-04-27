@@ -21,7 +21,7 @@ if [ ! -e "./hynode-server/.env" ];then
     cp .env-sample hynode-server/.env
 fi
 # 每次更新镜像
-docker stop hynode-server-pro pijs2-pro
+docker stop hynode-server-pro pijs2-pro redis8 mysql5.7 phpmyadmin
 docker rm hynode-server-pro pijs2-pro
 docker rmi swaycn/hynode-server  swaycn/pijs2
 # 启动
