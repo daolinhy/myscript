@@ -20,6 +20,10 @@ if [ ! -e "./hynode-server/.env" ];then
     cp .ddns-sample.json hynode-server/.ddns.json
     cp .env-sample hynode-server/.env
 fi
+# 每次更新镜像
+docker stop hynode-server-pro pijs2-pro
+docker rm hynode-server-pro pijs2-pro
+docker rmi swaycn/hynode-server  swaycn/pijs2
 # 启动
 echo 'start docker'
 rm docker-compose.yml
