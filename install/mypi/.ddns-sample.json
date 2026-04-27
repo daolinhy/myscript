@@ -1,0 +1,133 @@
+{
+    "tx": {
+        "credential": {
+            "secretId": "",
+            "secretKey": ""
+        },
+        "machines": {
+            "pi": {
+                "mac": "",
+                "ModifyRecord": {
+                    "RecordId": 0,
+                    "Domain": "",
+                    "SubDomain": "pi",
+                    "RecordType": "AAAA",
+                    "RecordLine": "默认",
+                    "Value": ""
+                }
+            },
+            "nas": {
+                "mac": "",
+                "port": 2305,
+                "ModifyRecord": {
+                    "RecordId": 0,
+                    "Domain": "",
+                    "SubDomain": "nas",
+                    "RecordType": "AAAA",
+                    "RecordLine": "默认",
+                    "Value": ""
+                }
+            },
+            "photo": {
+                "mac": "",
+                "port": 2305,
+                "ModifyRecord": {
+                    "RecordId": 0,
+                    "Domain": "",
+                    "SubDomain": "photo",
+                    "RecordType": "AAAA",
+                    "RecordLine": "默认",
+                    "Value": ""
+                }
+            },
+            "xunlei": {
+                "mac": "",
+                "port": 2305,
+                "ModifyRecord": {
+                    "RecordId": 0,
+                    "Domain": "",
+                    "SubDomain": "xunlei",
+                    "RecordType": "AAAA",
+                    "RecordLine": "默认",
+                    "Value": ""
+                }
+            },
+            "alist0": {
+                "mac": "",
+                "port": 2305,
+                "ModifyRecord": {
+                    "RecordId": 0,
+                    "Domain": "",
+                    "SubDomain": "alist0",
+                    "RecordType": "AAAA",
+                    "RecordLine": "默认",
+                    "Value": ""
+                }
+            },
+            "master": {
+                "mac": "",
+                "ModifyRecord": {
+                    "RecordId": 0,
+                    "Domain": "",
+                    "SubDomain": "master",
+                    "RecordType": "AAAA",
+                    "RecordLine": "默认",
+                    "Value": ""
+                }
+            },
+            "first": {
+                "mac": "",
+                "ModifyRecord": {
+                    "RecordId": 0,
+                    "Domain": "",
+                    "SubDomain": "first",
+                    "RecordType": "AAAA",
+                    "RecordLine": "默认",
+                    "Value": ""
+                }
+            },
+            "super": {
+                "mac": "",
+                "ModifyRecord": {
+                    "RecordId": 0,
+                    "Domain": "",
+                    "SubDomain": "super",
+                    "RecordType": "AAAA",
+                    "RecordLine": "默认",
+                    "Value": ""
+                }
+            }
+        }
+    },
+    "cf": {
+        "zoneId": "",
+        "email": "@qq.com",
+        "key": "",
+        "machines": {
+            "master": {
+                "id": ""
+            },
+            "super": {
+                "id": ""
+            },
+            "alist": {
+                "id": ""
+            },
+            "pi": {
+                "id": ""
+            },
+            "photo": {
+                "id": ""
+            },
+            "nas": {
+                "id": ""
+            },
+            "xiaoya": {
+                "id": ""
+            },
+            "xunlei": {
+                "id": ""
+            }
+        }
+    }
+}

@@ -1,64 +1,30 @@
 #! /bin/bash
 # build images
 echo 'start download code'
-gitAddr=github.com
-gitClone=${gitAddr}:daolinhy
 myscript=https://raw.githubusercontent.com/daolinhy/myscript/refs/heads/master/
 
-mkdir -p /download/gitspace
-cd /download/gitspace
-ssh-keygen -R $gitAddr
-ssh-keyscan $gitAddr >> ~/.ssh/known_hosts 
-if [ ! -e "/download/gitspace/pijs2" ]; then
-    echo git@${gitClone}/pijs2.git
-    git clone git@${gitClone}/pijs2.git
-fi
-if [ ! -e "/download/gitspace/hynode-server" ]; then
-    echo git@${gitClone}/hynode-server.git
-    git clone git@${gitClone}/hynode-server.git
-fi
-cd pijs2/docker
-
-echo 'start build pijs2'
-name=pijs2-test
-image=swaycn/pijs2
-ver=v1
-docker stop $name
-docker rm $name
-docker rmi ${image}:${ver}
-docker build \
---build-arg BASE_WARE=  \
---build-arg NPM_MIRROR=  \
--t ${image}:${ver} -f Dockerfile ../
-
-echo 'start build hynode-server'
-cd /download/gitspace/hynode-server
-name=hynode-server-test
-image=swaycn/hynode-server
-ver=v1
-mkdir logs
-docker stop $name
-docker rm $name
-docker rmi ${image}:${ver}
-docker build \
---build-arg BASE_WARE=  \
---build-arg NPM_MIRROR=  \
--t ${image}:${ver} -f Dockerfile ../
-
-mkdir /download/dapp
+mkdir -p /download/dapp
 cd /download/dapp
-
 # 处理mysql redis
 echo 'start download database'
 if [ ! -e "/download/dapp/mysql5.7" ]; then
     wget ${myscript}install/mypi/app.tar.gz
     tar zxf app.tar.gz
 fi
+# 处理前后端
+mkdir pijs2 hynode-server 
+rm .env-sample .ddns-sample.json
+if [ ! -e "./hynode-server/.env" ];then
+    wget ${myscript}install/mypi/.env-sample
+    wget ${myscript}install/mypi/.ddns-sample.json
+    cp .ddns-sample.json hynode-server/.ddns.json
+    cp .env-sample hynode-server/.env
+fi
 # 启动
 echo 'start docker'
-rm docker-compose-ver.yml
-wget ${myscript}install/mypi/docker-compose-ver.yml
+rm docker-compose.yml
+wget ${myscript}install/mypi/docker-compose.yml
 docker network create web
-docker compose -f docker-compose-ver.yml up -d
+docker compose up -d
 
 

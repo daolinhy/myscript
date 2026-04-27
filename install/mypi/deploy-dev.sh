@@ -6,8 +6,8 @@ gitClone=${gitAddr}:daolinhy
 
 mkdir -p /download/gitspace
 cd /download/gitspace
-ssh-keygen -R $gitAddr
-ssh-keyscan $gitAddr >> ~/.ssh/known_hosts 
+# ssh-keygen -R $gitAddr
+# ssh-keyscan $gitAddr >> ~/.ssh/known_hosts 
 if [ ! -e "/download/gitspace/pijs2" ]; then
     echo git@${gitClone}/pijs2.git
     git clone git@${gitClone}/pijs2.git
